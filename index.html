@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jan H. Wasserziehr</title>
+<meta name="description" content="Jan H. Wasserziehr is a political philosopher at the London School of Economics working on critical theory and the philosophy of AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F4F0;
+    --ink:#17181A;
+    --muted:#6C6F6B;
+    --rule:#D9D9D2;
+    --accent:#2F4858;
+    --serif:"Spectral",Georgia,"Times New Roman",serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    --col:580px;
+    --photo:170px;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+
+  body{
+    position:relative;
+    margin:0;
+    padding:5.5rem 0 4.5rem;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-weight:300;
+    font-size:16.5px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---- the spine: one hairline down the full height of the page ---- */
+  .spine{
+    position:absolute;
+    top:0;bottom:0;
+    left:calc(50% - var(--col)/2 - 2.2rem);
+    width:1px;
+    background:var(--rule);
+  }
+
+  /* ============ three-track grid ============ */
+  .row{
+    display:grid;
+    grid-template-columns:1fr minmax(0,var(--col)) 1fr;
+    align-items:start;
+  }
+
+  .rail{
+    grid-column:1;
+    position:relative;
+    display:flex;
+    align-items:flex-start;
+    padding-left:1.5rem;
+    padding-right:2.2rem;
+  }
+
+  .col{grid-column:2}
+
+  .masthead{margin-bottom:4rem}
+
+  .portrait{
+    width:var(--photo);
+    height:calc(var(--photo) * 1.25);
+    flex:0 0 var(--photo);
+    object-fit:cover;
+    display:block;
+    background:#E4E4DD;
+  }
+
+  h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:1.95rem;
+    line-height:1.15;
+    letter-spacing:-.015em;
+    margin:0 0 .95rem;
+  }
+
+  .bio p{margin:0 0 1.05rem}
+  .bio p:last-child{margin-bottom:0}
+  .bio ul{counter-reset:item;margin:0 0 1.05rem;padding:0;list-style:none}
+  .bio ul li{padding-left:1.75rem;margin-bottom:.35rem;position:relative}
+  .bio ul li::before{
+    counter-increment:item;content:"(" counter(item,lower-alpha) ")";
+    position:absolute;left:0;color:var(--muted);font-size:.92em;
+  }
+
+  /* ---- section labels, right-aligned against the spine ---- */
+  section{margin-top:2.6rem}
+  section .col{border-top:1px solid var(--rule);padding-top:2.5rem}
+
+  .marker{
+    grid-column:1;
+    justify-self:end;
+    padding:2.4rem 2.2rem 0 0;
+    position:sticky;
+    top:5.5rem;
+    font-family:var(--mono);
+    font-size:10.5px;
+    font-weight:500;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+
+  /* ---- the hairline tying the photo across to the spine ---- */
+  .tie{
+    flex:1 1 auto;
+    height:1px;
+    background:var(--rule);
+    margin-top:17px;
+    transform-origin:left center;
+    animation:draw 1s .2s cubic-bezier(.22,.61,.36,1) both;
+  }
+
+  @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+  /* ============ content ============ */
+  p{margin:0 0 1.05rem}
+  p:last-child{margin-bottom:0}
+
+  h3{
+    font-family:var(--mono);font-size:10.5px;font-weight:500;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+    margin:2.2rem 0 1rem;
+  }
+  h3:first-child{margin-top:0}
+
+  .entry{margin-bottom:1.4rem}
+  .entry:last-child{margin-bottom:0}
+  .entry-title{margin:0 0 .12rem;font-weight:400}
+  .entry-meta{margin:0;color:var(--muted);font-size:.94rem}
+
+  .courses{margin:0;padding:0;list-style:none}
+  .courses li{margin-bottom:.5rem;padding-left:1.1rem;position:relative}
+  .courses li::before{content:"—";position:absolute;left:0;color:var(--muted)}
+  .courses li:last-child{margin-bottom:0}
+
+  .note{color:var(--muted);font-size:.94rem}
+
+  a{
+    color:var(--ink);text-decoration:underline;text-decoration-thickness:.5px;
+    text-underline-offset:3px;text-decoration-color:var(--rule);
+    transition:color .18s ease,text-decoration-color .18s ease;
+  }
+  a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;text-decoration:none}
+
+  .contact a{font-family:var(--mono);font-size:.86rem}
+  .contact p{margin-bottom:.45rem}
+
+  footer{
+    margin-top:3.4rem;font-family:var(--mono);font-size:10px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  }
+
+  /* ============ narrow viewports ============ */
+  @media (max-width:1120px){
+    .spine{display:none}
+    .row{
+      grid-template-columns:minmax(0,var(--col));
+      justify-content:center;
+      padding:0 2rem;
+    }
+    .rail,.col,.marker{grid-column:1}
+    .rail{padding-left:0;padding-right:0;margin-bottom:1.5rem}
+    .tie{display:none}
+    .marker{
+      position:static;
+      justify-self:start;
+      padding:2.4rem 0 0;
+      margin-bottom:-1.4rem;
+    }
+    section .col{border-top:none;padding-top:1.1rem}
+    section .marker{border-top:1px solid var(--rule)}
+  }
+
+  @media (max-width:720px){
+    :root{--photo:150px}
+    body{font-size:16px;padding:3rem 0 3rem}
+    .row{padding:0 1.5rem}
+    .masthead{margin-bottom:2.8rem}
+    h1{font-size:1.7rem}
+    .entry-meta,.note{font-size:.95rem}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .tie{animation:none !important;transform:none !important}
+    a{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="spine"></div>
+
+<header class="row masthead">
+  <div class="rail">
+    <img class="portrait" src="portrait.jpg" alt="Jan H. Wasserziehr">
+    <i class="tie"></i>
+  </div>
+  <div class="col">
+    <h1>Jan H. Wasserziehr</h1>
+    <div class="bio">
+      <p>I am a political philosopher working at the intersection of critical theory and the philosophy of AI. I am especially interested in the relationship between technical progress and:</p>
+      <ul>
+        <li>modern ideas of human freedom; and</li>
+        <li>human cognition, reason, and autonomy.</li>
+      </ul>
+      <p>I am completing a PhD in Political Theory at the London School of Economics, supervised by Katrin Flikschuh and advised by Lea Ypi. My thesis, <em>Fleeting Freedom: Technical Progress and the Fate of Modernity</em>, is a critical enquiry into the ambiguities immanent to the modern project to ground human freedom in technical progress and the domination of nature.</p>
+      <p>Alongside the thesis, I work on the ethics of artificial consciousness, and in particular on the question of whether artificial systems could have moral status.</p>
+      <p>I was previously a visiting scholar at Columbia University and Humboldt-Universität zu Berlin. Before the PhD, I worked for three years at a political consultancy in Berlin.</p>
+    </div>
+  </div>
+</header>
+
+<section class="row">
+  <div class="marker">Publications</div>
+  <div class="col">
+    <h3>Peer-reviewed articles</h3>
+    <div class="entry">
+      <p class="entry-title">Can Technical Progress Make Us Free?</p>
+      <p class="entry-meta"><em>European Journal of Political Theory</em>, 2026. <a href="https://doi.org/10.1177/14748851261472308">Published version</a></p>
+    </div>
+    <div class="entry">
+      <p class="entry-title">Are Conscious Machines Valuers?</p>
+      <p class="entry-meta"><em>AI &amp; Society</em>, 2026. <a href="https://doi.org/10.1007/s00146-026-02959-1">Published version</a></p>
+    </div>
+
+    <h3>Conference proceedings</h3>
+    <div class="entry">
+      <p class="entry-title">The Moral Ambiguity of the AI Consciousness Debate</p>
+      <p class="entry-meta">In <em>Social Robots with AI: Prospects, Risks, and Responsible Methods</em>, IOS Press, 2025, pp. 65–76. <a href="https://doi.org/10.3233/FAIA241490">Published version</a></p>
+    </div>
+
+    <h3>Under review</h3>
+    <div class="entry">
+      <p class="entry-title">Artificial Consciousness and Rational Desire: A Kantian View</p>
+      <p class="entry-meta">With Tom Bailey. Conditionally accepted at <em>Philosophy and the Mind Sciences</em>.</p>
+    </div>
+    <div class="entry">
+      <p class="entry-title">Heidegger’s <em>Frage nach der Technik</em> as an Immanent Critique of Modernity</p>
+      <p class="entry-meta">Under review.</p>
+    </div>
+    <p class="note" style="margin-top:1.4rem">Drafts available on request.</p>
+  </div>
+</section>
+
+<section class="row">
+  <div class="marker">Teaching</div>
+  <div class="col">
+    <ul class="courses">
+      <li>Introduction to Political Theory (2023–24, 2024–25, 2026–27), LSE</li>
+      <li>Contemporary Political Theory (2026–27), LSE</li>
+    </ul>
+  </div>
+</section>
+
+<section class="row">
+  <div class="marker">Other writing</div>
+  <div class="col">
+    <div class="entry">
+      <p class="entry-title"><a href="https://blogs.lse.ac.uk/government/2025/12/15/does-mamdanis-victory-show-that-radical-is-the-new-normal/">Does Mamdani’s victory show that “radical” is the new normal?</a></p>
+      <p class="entry-meta">LSE Government Blog, 2025</p>
+    </div>
+    <div class="entry">
+      <p class="entry-title"><a href="https://iai.tv/articles/dont-blame-ai-for-its-mistakes-auid-3421">Don’t blame AI for its mistakes</a></p>
+      <p class="entry-meta">Institute of Art and Ideas, 2025</p>
+    </div>
+  </div>
+</section>
+
+<section class="row">
+  <div class="marker">Contact</div>
+  <div class="col contact">
+    <p><a href="mailto:j.h.wasserziehr@lse.ac.uk">j.h.wasserziehr@lse.ac.uk</a></p>
+    <p><a href="cv.pdf">Curriculum vitae (PDF)</a></p>
+    <p class="note" style="font-family:var(--serif);font-size:.94rem;margin-top:1rem">Department of Government, London School of Economics, Houghton Street, London WC2A 2AZ</p>
+    <footer>Last updated August 2026</footer>
+  </div>
+</section>
+
+</body>
+</html>
